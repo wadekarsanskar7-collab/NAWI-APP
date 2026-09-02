@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAWI Test-Report Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="masthead">
+      <h1>NAWI Test-Report Generator</h1>
+      <div class="tag">SIH26035 · MVP demo</div>
+    </div>
+
+    <div class="form-panel">
+      <div class="section-title">Instrument details</div>
+      <div class="field-grid">
+        <div class="field"><label>Make / manufacturer</label><input id="f-make" placeholder="e.g. Avery"></div>
+        <div class="field"><label>Model</label><input id="f-model" placeholder="e.g. AWS-500"></div>
+        <div class="field"><label>Serial number</label><input class="num-input" id="f-serial" placeholder="SN-000000"></div>
+        <div class="field"><label>Accuracy class</label>
+          <select id="f-class">
+            <option>Class I</option>
+            <option selected>Class II</option>
+            <option>Class III</option>
+            <option>Class IIII</option>
+          </select>
+        </div>
+        <div class="field"><label>Max capacity (Max)</label><input class="num-input" id="f-max" placeholder="e.g. 500 kg"></div>
+        <div class="field"><label>Min capacity (Min)</label><input class="num-input" id="f-min" placeholder="e.g. 2 kg"></div>
+        <div class="field"><label>Scale interval (e)</label><input class="num-input" id="f-e" placeholder="e.g. 0.1 kg"></div>
+        <div class="field"><label>Test location</label><input id="f-location" placeholder="Site / facility"></div>
+        <div class="field"><label>Test date</label><input type="date" id="f-date"></div>
+        <div class="field"><label>Operator / tester</label><input id="f-operator" placeholder="Name"></div>
+      </div>
+
+      <div class="section-title sp-top">Test readings</div>
+      <table class="readings-table" id="readings-table">
+        <thead>
+          <tr>
+            <th style="width:26%">Test load</th>
+            <th style="width:26%">Indicated</th>
+            <th style="width:20%">MPE (±)</th>
+            <th style="width:20%">Result</th>
+            <th style="width:8%"></th>
+          </tr>
+        </thead>
+        <tbody id="readings-body"></tbody>
+      </table>
+      <button class="add-row-btn" id="add-row">+ Add test point</button>
+
+      <button class="print-btn" id="print-btn">Generate PDF (print / save as PDF)</button>
+    </div>
+
+    <div class="cert-wrap">
+      <div class="certificate" id="certificate"></div>
+    </div>
+  </div>
+
+  <div id="print-area">
+    <div class="certificate" id="certificate-print"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
